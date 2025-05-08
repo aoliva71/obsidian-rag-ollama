@@ -1,0 +1,177 @@
+/*
+
+This CSS file will be included with your plugin, and
+available in the app when your plugin is enabled.
+
+If your plugin does not need CSS, delete this file.
+
+*/
+
+.rag-ollama-chat-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 10px;
+}
+
+.rag-ollama-messages-container {
+    flex: 1;
+    overflow-y: auto;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.rag-ollama-input-container {
+    display: flex;
+    gap: 10px;
+}
+
+.rag-ollama-input {
+    flex: 1;
+    min-height: 60px;
+    padding: 8px;
+    border-radius: 4px;
+    resize: none;
+}
+
+.rag-ollama-send-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: var(--interactive-accent);
+    transition: background-color 0.2s;
+}
+
+.rag-ollama-send-button:hover {
+    background-color: var(--interactive-accent-hover);
+}
+
+.rag-ollama-send-icon {
+    width: 0;
+    height: 0;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-left: 12px solid rgb(128, 128, 128);
+    margin-left: 3px;
+    transition: border-left-color 0.2s;
+}
+
+.rag-ollama-send-button:hover .rag-ollama-send-icon {
+    border-left-color: var(--text-accent);
+}
+
+.rag-ollama-message {
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.rag-ollama-message-user {
+    background-color: var(--background-secondary);
+    align-self: flex-end;
+    margin-left: 20%;
+}
+
+.rag-ollama-message-assistant {
+    background-color: var(--background-secondary-alt);
+    align-self: flex-start;
+    margin-right: 20%;
+}
+
+.rag-ollama-message-system {
+    background-color: var(--background-modifier-border);
+    align-self: center;
+    font-style: italic;
+}
+
+.rag-ollama-message-role {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* Prevent paragraph margins from breaking the layout */
+.rag-ollama-message-content p:first-child {
+    margin-top: 0;
+}
+
+.rag-ollama-message-content p:last-child {
+    margin-bottom: 0;
+}
+
+/* Style code blocks */
+.rag-ollama-message-content pre {
+    background-color: var(--code-background);
+    padding: 8px;
+    border-radius: 4px;
+    overflow-x: auto;
+    position: relative;  /* Needed for absolute positioning of the copy button */
+    margin-top: 1.5em;   /* Add some top margin for the copy button */
+}
+
+.rag-ollama-message-content code {
+    font-family: monospace;
+}
+
+.copy-code-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: var(--background-modifier-hover);
+    color: var(--text-muted);
+    border: none;
+    border-radius: 4px;
+    padding: 0.3em 0.6em;
+    font-size: 0.8em;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.copy-code-button:hover {
+    background-color: var(--interactive-accent);
+    color: var(--text-on-accent);
+}
+
+.copy-code-button.success {
+    background-color: var(--interactive-success);
+    color: var(--text-on-accent);
+}
+
+/* Spinner animation */
+.rag-ollama-spinner {
+    width: 40px;
+    height: 40px;
+    border: 7px solid rgb(255, 255, 255);
+    border-radius: 50%;
+    border-top-color: rgb(128, 128, 128);
+    border-left-color: rgb(144, 144, 144);
+    border-bottom-color: rgb(160 160, 160);
+    border-right-color: rgb(176, 176, 176);
+    animation: rag-ollama-spin 1s ease-in-out infinite;
+    margin: 10px auto;
+}
+
+@keyframes rag-ollama-spin {
+    to { transform: rotate(360deg); }
+}
+
+/* References section styling */
+.rag-ollama-references-section {
+    margin-top: 1em;
+    padding-top: 0.5em;
+    border-top: 1px solid var(--background-modifier-border);
+}
+
+.rag-ollama-references-section cite {
+    font-style: italic;
+    color: var(--text-muted);
+}
+
+.rag-ollama-references-list {
+    margin-top: 0.5em;
+    padding-left: 1.5em;
+}
