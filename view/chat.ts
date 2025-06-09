@@ -82,7 +82,7 @@ class ChatView extends ItemView {
 		new ReIndexModal(this.app, this.plugin.engine).open();
 
 		// Add some initial message
-		this.addMessage("system", "Hello! How can I help you today?");
+		this.addMessage("assistant", "Hello! How can I help you today?");
 
 		// Add the view class to the content element
 		contentEl.addClass("rag-ollama-chat-view");
@@ -114,11 +114,11 @@ class ChatView extends ItemView {
 					this.spinnerElement.remove();
 					this.spinnerElement = null;
 				}
-			this.addMessage("system", `Error: ${error.message}`);
+			this.addMessage("assistant", `Error: ${error.message}`);
 		}
   	}
 
-	private addMessage(role: "user" | "assistant" | "system", content: string) {
+	private addMessage(role: "user" | "assistant", content: string) {
 		const messageEl = this.messagesContainer.createEl("div", {
 			cls: `rag-ollama-message rag-ollama-message-${role}`
 		});

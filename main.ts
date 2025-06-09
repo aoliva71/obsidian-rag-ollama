@@ -15,27 +15,18 @@ export default class RagOllamaPlugin extends Plugin {
 
 		this.engine = new Engine(this.app, this.settings);
 
-		// Register the chat view
 		this.registerView(
 			VIEW_TYPE_CHAT,
 			(leaf) => new ChatView(leaf, this)
 		);
 
-		// This creates an icon in the left ribbon.
 		const ribbonIconEl = this.addRibbonIcon('message-square', 'RAG Ollama Plugin', async (evt: MouseEvent) => {
-			// Open a new tab with the chat view
 			const leaf = this.app.workspace.getLeaf(true);
 			await leaf.setViewState({
 				type: VIEW_TYPE_CHAT,
 				active: true,
 			});
 		});
-		// Perform additional things with the ribbon
-		ribbonIconEl.addClass('rag-ollama-plugin-ribbon-class');
-
-		// This adds a status bar item to the bottom of the app. Does not work on mobile apps.
-		const statusBarItemEl = this.addStatusBarItem();
-		statusBarItemEl.setText('Status Bar Text');
 
 		this.addCommand({
 			id: 'run-rag-ollama-reindex',
@@ -57,12 +48,10 @@ export default class RagOllamaPlugin extends Plugin {
 			}
 		});
 
-		// This adds a settings tab so the user can configure various aspects of the plugin
 		this.addSettingTab(new RagOllamaSettingsTab(this.app, this));
 	}
 
 	onunload() {
-		// Unregister the view
 		this.app.workspace.detachLeavesOfType(VIEW_TYPE_CHAT);
 	}
 

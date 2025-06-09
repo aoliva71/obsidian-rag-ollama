@@ -1,12 +1,3 @@
-/*
-
-This CSS file will be included with your plugin, and
-available in the app when your plugin is enabled.
-
-If your plugin does not need CSS, delete this file.
-
-*/
-
 .rag-ollama-chat-container {
     display: flex;
     flex-direction: column;
@@ -109,8 +100,8 @@ If your plugin does not need CSS, delete this file.
     padding: 8px;
     border-radius: 4px;
     overflow-x: auto;
-    position: relative;  /* Needed for absolute positioning of the copy button */
-    margin-top: 1.5em;   /* Add some top margin for the copy button */
+    position: relative;
+    margin-top: 1.5em;
 }
 
 .rag-ollama-message-content code {
